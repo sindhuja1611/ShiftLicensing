@@ -1,0 +1,37 @@
+<h1>Lista de pacientes</h1>
+<nz-layout>
+    <nz-content>
+        <nz-space [nzSize]="16" class="button-bar">
+            <button *nzSpaceItem nz-button nzType="primary" type="button" class="btn btn-dark mr-1" routerLink="/pacientes/novo-paciente">
+                Novo Paciente
+            </button>
+            <button *nzSpaceItem nz-button nzType="default" class="btn btn-dark" (click)="refreshList()">
+                <span nz-icon nzType="reload" nzTheme="outline"></span>
+            </button>
+        </nz-space>
+        <nz-table #table [nzData]="pacientes">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Data de nascimento</th>
+                    <th>e-mail</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let paciente of table.data;">
+                    <td>{{paciente.id}}</td>
+                    <td>{{paciente.name}}</td>
+                    <td>{{paciente.cpf}}</td>
+                    <td>{{paciente.birthDate | date: 'dd/MM/yyyy'}}</td>
+                    <td>{{paciente.email}}</td>
+                    <td><a class="btn btn-dark" routerLink="/pacientes/{{paciente.id}}">
+                            Editar
+                        </a></td>
+                </tr>
+            </tbody>
+        </nz-table>
+    </nz-content>
+</nz-layout>

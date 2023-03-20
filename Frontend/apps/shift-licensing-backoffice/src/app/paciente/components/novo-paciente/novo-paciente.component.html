@@ -1,0 +1,16 @@
+<div class="submit-form">
+    <div>
+        <button type="button" class="btn btn-dark" (click)="voltar()">
+            &#10094; Voltar
+        </button>
+    </div>
+    <h4 style="text-align: center">Novo Paciente</h4>
+    <div >
+        <slb-paciente-form (save)="savePaciente($event)" *ngIf="!submitted"></slb-paciente-form>
+        <div *ngIf="submitted">
+            <h4>Paciente cadastrado com sucesso!</h4>
+            <button class="btn btn-dark" type="button" (click)="newPaciente()">Novo Paciente</button>
+        </div>
+
+    </div>
+</div>

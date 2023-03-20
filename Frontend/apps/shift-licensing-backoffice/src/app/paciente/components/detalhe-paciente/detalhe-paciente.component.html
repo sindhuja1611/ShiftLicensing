@@ -1,0 +1,27 @@
+<div class="edit-form">
+
+    <div *ngIf="!loading">
+        <button nz-button nzType="link" type="button" (click)="voltar()">
+            Voltar
+        </button>
+    </div>
+
+    <div *ngIf="currentPaciente?.id && !loading">
+        <h4 style="text-align: center">Paciente</h4>
+        <slb-paciente-form [paciente]="currentPaciente" (save)="updatePaciente($event)"></slb-paciente-form>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-danger" (click)="deletePaciente()">
+                    Apagar
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div *ngIf="!currentPaciente?.id && !loading">
+        <br />
+        <p>Paciente não encontrado...</p>
+    </div>
+</div>

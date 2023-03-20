@@ -1,0 +1,36 @@
+<form nz-form [formGroup]="pacienteForm" (ngSubmit)="savePaciente()">
+    <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="name">Name</nz-form-label>
+        <nz-form-control [nzSpan]="14" nzErrorTip="Please input a valid name">
+            <input nz-input data-testid="name-input" type="text" id="name" required formControlName="name" name="name" />
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="cpf">CPF</nz-form-label>
+        <nz-form-control [nzSpan]="14" nzErrorTip="Please input a valid CPF">
+            <input nz-input type="text" id="cpf" required formControlName="cpf" name="cpf" />
+        </nz-form-control>
+    </nz-form-item>
+    
+    <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="birthDate">Birth Date</nz-form-label>
+        <nz-form-control [nzSpan]="14" nzErrorTip="Please input a valid birth date">
+            <input nz-input type="date" id="birthDate" required formControlName="birthDate" name="birthDate" />
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="email">Email</nz-form-label>
+        <nz-form-control [nzSpan]="14" nzErrorTip="Please input a valid email">
+            <input nz-input type="email" id="email" required formControlName="email" name="email" />
+        </nz-form-control>
+    </nz-form-item>
+
+   
+    <nz-form-item nz-row>
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button nz-button nzType="primary">Register</button>
+        </nz-form-control>
+      </nz-form-item>
+</form>

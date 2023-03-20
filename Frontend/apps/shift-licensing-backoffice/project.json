@@ -1,0 +1,101 @@
+{
+  "name": "shift-licensing-backoffice",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/shift-licensing-backoffice/src",
+  "prefix": "slb",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/shift-licensing-backoffice",
+        "index": "apps/shift-licensing-backoffice/src/index.html",
+        "main": "apps/shift-licensing-backoffice/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/shift-licensing-backoffice/tsconfig.app.json",
+        "inlineStyleLanguage": "less",
+        "assets": [
+          "apps/shift-licensing-backoffice/src/favicon.ico",
+          "apps/shift-licensing-backoffice/src/assets",
+          {
+            "glob": "**/*",
+            "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+            "output": "/assets/"
+          }
+        ],
+        "styles": [
+          "apps/shift-licensing-backoffice/src/styles.less",
+          "node_modules/ng-zorro-antd/ng-zorro-antd.min.css"
+        ],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "3mb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "shift-licensing-backoffice:build:production"
+        },
+        "development": {
+          "browserTarget": "shift-licensing-backoffice:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "shift-licensing-backoffice:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/shift-licensing-backoffice/**/*.ts",
+          "apps/shift-licensing-backoffice/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "apps/shift-licensing-backoffice/tsconfig.spec.json",
+        "karmaConfig": "apps/shift-licensing-backoffice/karma.conf.js",
+        "polyfills": ["zone.js", "zone.js/testing"],
+        "styles": [],
+        "scripts": [],
+        "assets": []
+      }
+    }
+  },
+  "tags": []
+}

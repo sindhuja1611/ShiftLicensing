@@ -1,0 +1,52 @@
+<div class="background">
+    <div class="container">
+
+        <nz-card style="width:500px;">
+            <img class="img" src="/assets/Images/logo.svg" alt="Card Image"><br>
+            <hr><br>
+            <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+                <nz-form-item class="label">
+                <nz-form-label [nzSpan]="7">Username</nz-form-label>
+               </nz-form-item>
+                <nz-form-item class="alignitem">
+                    <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="userErrorTpl" class="input">
+                        <nz-input-group nzPrefixIcon="user">
+                            <input nz-input formControlName="userName"
+                                placeholder="Username" />
+                        </nz-input-group>
+                        <ng-template #userErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')">Please input your username!
+                            </ng-container>
+                            <ng-container *ngIf="control.hasError('duplicated')">The username is redundant!
+                            </ng-container>
+                        </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+        
+                <nz-form-item class="label">
+                    <nz-form-label [nzSpan]="7">Password</nz-form-label>
+                   </nz-form-item>
+                <nz-form-item class="alignitem">
+                      <nz-form-control nzHasFeedback nzErrorTip="Please input your password!">
+                        <nz-input-group nzPrefixIcon="lock">
+                            <input nz-input type="password" formControlName="password" />
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-control class="buttonalignment">
+                        <button class="button" nz-button>Submit</button>
+
+                    </nz-form-control>
+                </nz-form-item>
+            </form>
+
+
+        </nz-card>
+    </div>
+</div>
+
+
+<!-- [disabled]="!validateForm.valid" -->
+
