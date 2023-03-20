@@ -1,0 +1,2 @@
+# ShiftLicensing
+Angular Nx Workspace
